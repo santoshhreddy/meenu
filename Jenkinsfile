@@ -10,17 +10,17 @@ pipeline {
         }
         stage ('build code with maven') {
             steps {
-                sh 'maven clean package'
+                sh 'mvn clean package'
             }
         }
         stage ('archive artifacts') {
             steps { 
-                archive 'gameoflife-web/target/*.war'
+                archiveArtifacts 'gameoflife-web/target/*.war'
         }
      }
         stage ('junit test reports') {
             steps {
-                junit 'gameoflife-web/target/surefire-reports'
+                junit 'gameoflife-web/target/surefire-reports/*xml'
             }
         }
 
