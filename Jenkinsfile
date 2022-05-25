@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'san1'
-    }
+    agent any
     stages {
         stage ('checkout code from git-hub') {
             steps {
